@@ -5,10 +5,11 @@ include("connect.php");
 
 
     $name = $_POST['name'];
+    $flatno = $_POST['flatno'];
     $mobile = $_POST['mobile'];
     $password = $_POST['password'];
     $cpassword = $_POST['cpassword'];
-    $address = $_POST['address'];
+    $description = $_POST['description'];
     $image = $_FILES['photo']['name'];
     $tmp_name = $_FILES['photo']['tmp_name'];
     $role = $_POST['role'];
@@ -18,13 +19,13 @@ include("connect.php");
         // Move uploaded file
         $upload_path = "../uploads/" . basename($image);
         move_uploaded_file($tmp_name, $upload_path);
-        $insert = mysqli_query($connect,"INSERT INTO user (name, mobile, address,password,photo,role,status,votes)VALUES ('$name','$mobile', '$address', '$password', '$image', '$role', 0,0)");
+        $insert = mysqli_query($connect,"INSERT INTO user (name,flatno, mobile, description,password,photo,role,status,votes)VALUES ('$name','$flatno','$mobile', '$description', '$password', '$image', '$role', 0,0)");
         if($insert)
         {
             echo '
             <script>
             alert("Registration successful");
-            window.location.href = "../";
+            window.location.href = "/pr/home.php";
             </script>';
         }
         else

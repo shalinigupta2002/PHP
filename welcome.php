@@ -143,25 +143,7 @@
   </div>
 </div>
 
-<!------------------  About Section ------------------>
-<section>
-    <div class="container-fluid" style="margin-top: 50px;">
-      <div class="row" style="background: linear-gradient(to right, #a517ba,#5f1178 );" width="100%">
-        <div class="col-md-12" style="background-image: linear-gradient(to right, #a517ba,#5f1178 ); color: white;">
-          <h1 style="text-align: center; background-image: linear-gradient(to right, #a517ba,#5f1178 ); color: white;"> About Voting</h1>
-          <!-- <p> About Voting In Breif</p> -->
-        </div>
-        <div class="col-md-6" >
-          <img src="img/4.svg" alt="" srcset="" >
-        </div>
-        <div class="col-md-6" data-aos="fade-left">
-          <!-- <h1 style="color: white; margin-top: 40px;" class=" ">About</h1> -->
-          <p style="color: white;margin-bottom: 40px;" class=" ">"Our culture reflects the essence of our Indian society, where peace and harmony thrive under the guidance of a good leader. Choosing the right leader for our society is not just our right but also our responsibility.".</p>
-        </div>
-      </div>
-      </div>
-    </div>
-</section>
+<!--  -->
 
 
     

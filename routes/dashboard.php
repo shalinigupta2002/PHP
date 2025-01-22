@@ -128,7 +128,7 @@ $status = $_SESSION['userdata']['status'] == 0
             <div class="mt-3">
                 <p><b>Name:</b> <?php echo isset($userdata['name']) ? $userdata['name'] : 'N/A'; ?></p>
                 <p><b>Mobile:</b> <?php echo isset($userdata['mobile']) ? $userdata['mobile'] : 'N/A'; ?></p>
-                <p><b>Address:</b> <?php echo isset($userdata['address']) ? $userdata['address'] : 'N/A'; ?></p>
+                <p><b>flatno:</b> <?php echo isset($userdata['flatno']) ? $userdata['flatno'] : 'N/A'; ?></p>
                 <p><b>Status:</b> <?php echo $status; ?></p>
             </div>
         </div>
@@ -143,11 +143,12 @@ $status = $_SESSION['userdata']['status'] == 0
                         <div class="flex-grow-1">
                             <h5>Candidate Name: <?php echo $group['name']; ?></h5>
                             <p>Position: Maintenace Incharge</p>
+                            <p><b>description:</b> <?php echo isset($group['description']) ? $group['description'] : 'N/A'; ?></p>
                             <p>Votes: <?php echo $group['votes']; ?></p>
                         </div>
                         <form action="../api/vote.php" method="POST" class="d-flex align-items-center">
                             <input type="hidden" name="gvotes" value="<?php echo $group['votes']; ?>">
-                            <input type="hidden" name="gid" value="<?php echo $group['id']; ?>">
+                            
                             <button type="submit" name="votebtn" 
                                     class="btn-vote" 
                                     <?php echo $_SESSION['userdata']['status'] != 0 ? 'disabled' : ''; ?>>

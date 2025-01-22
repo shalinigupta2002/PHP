@@ -1,6 +1,9 @@
 <?php
 session_start();
-
+include("connect.php");
+$groups = $connect->query("SELECT * FROM user WHERE role = 2");
+$groupsdata = $groups->fetch_all(MYSQLI_ASSOC);
+$_SESSION['groupsdata'] = $groupsdata;
 $groupsdata = $_SESSION['groupsdata'];
 ?>
 
@@ -86,7 +89,7 @@ $groupsdata = $_SESSION['groupsdata'];
 </div>
 
 <div id="mainsection" class="container">
-    <a href="../">
+    <a href="/pr/home.php">
         <button class="btn-back mb-4">Back to Dashboard</button>
     </a>
     <?php if (!empty($groupsdata)) { ?>
