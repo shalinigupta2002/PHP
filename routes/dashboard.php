@@ -141,10 +141,11 @@ $status = $_SESSION['userdata']['status'] == 0
                     <div class="group-card">
                         <img src="../uploads/<?php echo $group['photo']; ?>" alt="Group Photo" height="100" width="100">
                         <div class="flex-grow-1">
-                            <h5>Candidate Name: <?php echo $group['name']; ?></h5>
-                            <p>Position: Maintenace Incharge</p>
+                            <h5>Candidate Name: <?php echo $group['name']; ?></h5><br>
+                            <p><b>Position:</b> Secretary</p>
+                            <p><b>Flat Number:</b> <?php echo isset($group['flatno']) ? $group['flatno'] : 'N/A'; ?></p>
                             <p><b>description:</b> <?php echo isset($group['description']) ? $group['description'] : 'N/A'; ?></p>
-                            <p>Votes: <?php echo $group['votes']; ?></p>
+                            <p><b>Votes:</b> <?php echo $group['votes']; ?></p>
                         </div>
                         <form action="../api/vote.php" method="POST" class="d-flex align-items-center">
                             <input type="hidden" name="gvotes" value="<?php echo $group['votes']; ?>">
