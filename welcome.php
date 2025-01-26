@@ -96,7 +96,11 @@
 <section id="banner">
   <div class="container">
     <div class="row">
+      
       <div class="col-md-6 animate__animated animate__bounceInLeft " style="text-align: center; background: linear-gradient(to right, #a517ba,#5f1178 );">
+      <div class="justify-content: start;background: green">
+    <a href="../pr/adminlogin.php"><button >ADMIN</button></a>
+</div>
         <h1>VOTE FOR BETTER COMMUNITY</h1>
         <p>"Our culture reflects the essence of our Indian society, where peace and harmony thrive under the guidance of a good leader. Choosing the right leader for our society is not just our right but also our responsibility."</p>
       <a href="../pr/index.php"><button class="slideUpBtn">VOTE NOW</button></a>

@@ -1,6 +1,17 @@
 <?php
 session_start();
 
+// Set voting start and end time
+$voting_start_time = strtotime("2025-01-21 09:00:00"); // Example start time
+$voting_end_time = strtotime("2025-01-28 18:00:00"); // Example end time
+$current_time = time();
+
+// Check if current time is outside the voting window
+if ($current_time > $voting_end_time) {
+    header("Location: http://localhost/pr/api/votingresult.php");
+    exit;
+}
+
 if (!isset($_SESSION['userdata']) || !isset($_SESSION['groupsdata'])) {
     echo "<script>
             alert('Session Expired. Please log in again.');
@@ -112,7 +123,7 @@ $status = $_SESSION['userdata']['status'] == 0
         <h1>Building Voting System</h1>
         <div class="d-flex justify-content-between px-4 mt-3">
             <a href="../"><button id="backbtn">Back</button></a>
-            <a href="logout.php"><button id="logoutbtn">Logout</button></a>
+            <a href="../welcome.php"><button id="logoutbtn">Logout</button></a>
         </div>
     </div>
 
@@ -128,7 +139,7 @@ $status = $_SESSION['userdata']['status'] == 0
             <div class="mt-3">
                 <p><b>Name:</b> <?php echo isset($userdata['name']) ? $userdata['name'] : 'N/A'; ?></p>
                 <p><b>Mobile:</b> <?php echo isset($userdata['mobile']) ? $userdata['mobile'] : 'N/A'; ?></p>
-                <p><b>flatno:</b> <?php echo isset($userdata['flatno']) ? $userdata['flatno'] : 'N/A'; ?></p>
+                <p><b>Flat No:</b> <?php echo isset($userdata['flatno']) ? $userdata['flatno'] : 'N/A'; ?></p>
                 <p><b>Status:</b> <?php echo $status; ?></p>
             </div>
         </div>
@@ -144,7 +155,7 @@ $status = $_SESSION['userdata']['status'] == 0
                             <h5>Candidate Name: <?php echo $group['name']; ?></h5><br>
                             <p><b>Position:</b> Secretary</p>
                             <p><b>Flat Number:</b> <?php echo isset($group['flatno']) ? $group['flatno'] : 'N/A'; ?></p>
-                            <p><b>description:</b> <?php echo isset($group['description']) ? $group['description'] : 'N/A'; ?></p>
+                            <p><b>Description:</b> <?php echo isset($group['description']) ? $group['description'] : 'N/A'; ?></p>
                             <p><b>Votes:</b> <?php echo $group['votes']; ?></p>
                         </div>
                         <form action="../api/vote.php" method="POST" class="d-flex align-items-center">
